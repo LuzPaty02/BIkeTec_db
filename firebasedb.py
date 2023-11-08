@@ -2,13 +2,14 @@ import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
 
-from database_connection_files.clases.user import User
-from database_connection_files.clases.bikes import Bike
-from database_connection_files.clases.gps import Gps
-from database_connection_files.clases.accessLogs import AccessLog
+from clases.user import User
+from clases.bikes import Bike
+from clases.gps import Gps
+#from database_connection_files.clases.accessLogs import AccessLog
 
 # Inicializa Firebase con tu archivo de configuración
-cred = credentials.Certificate("ruta/a/tu/archivo-de-configuracion.json")
+cred = credentials.Certificate(r"D:\uni - 3\IoT\BIkeTec_db\biketec-d84db-firebase-adminsdk-ys1mt-5772406772.json")
+#ruta/a/tu/archivo-de-configuracion.json
 firebase_admin.initialize_app(cred)
 
 # Conéctate a Firestore
@@ -19,16 +20,20 @@ def add_to_firestore(instance, collection_name, document_id):
     data = instance.to_dict()  # Use the to_dict() method instead of __dict__
     db.collection(collection_name).document(document_id).set(data)
 
+
+
 # Ejemplo de cómo crear y agregar instancias de clases a Firestore
-new_user = User(user_id=1, username="JohnDoe", matricula="12345", rfid_card_id="RFID123")
+new_user = User(user_id=2, username="Usuario prueba 2", matricula="12345", rfid_card_id="RFID123")
 add_to_firestore(new_user, "my_collection", f"user_{new_user.user_id}")
 
-new_bike = Bike(bike_id=1, is_available=True, gps_id=1)
+new_bike = Bike(bike_id=2, is_available=True, gps_id=1)
 add_to_firestore(new_bike, "my_collection", f"bike_{new_bike.bike_id}")
 
-new_gps = Gps(gps_id=1, status=True)
+new_gps = Gps(gps_id=2, status=True)
 add_to_firestore(new_gps, "my_collection", f"gps_{new_gps.gps_id}")
 
+
+""" 
 new_access_log = AccessLog(
     log_id=1,
     user_id=1,
@@ -67,7 +72,7 @@ def on_snapshot(doc_snapshot, changes, read_time):
             handle_access_event("access_logs", log_id, user_name, doc)
 
 # Watch the access_logs collection
-access_logs_watch = access_logs_ref.on_snapshot(on_snapshot)
+access_logs_watch = access_logs_ref.on_snapshot(on_snapshot) """
 
 # Your code to add new_access_log to Firestore goes here
 

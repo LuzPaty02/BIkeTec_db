@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "332140240999",
+    "firebase_url": "https://biketec-d84db-default-rtdb.firebaseio.com",
+    "project_id": "biketec-d84db",
+    "storage_bucket": "biketec-d84db.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:332140240999:android:49c150f02c7ec72ec534c2",
+        "android_client_info": {
+          "package_name": "com.example.biketec"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGy9DsJOTZfKfQq8qsF2DaW7En72kysbw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
