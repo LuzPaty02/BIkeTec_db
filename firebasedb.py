@@ -15,23 +15,30 @@ firebase_admin.initialize_app(cred)
 # Conéctate a Firestore
 db = firestore.client()
 
-# Define una función genérica para agregar una instancia de clase a Firestore
-def add_to_firestore(instance, collection_name, document_id):
-    data = instance.to_dict()  # Use the to_dict() method instead of __dict__
-    db.collection(collection_name).document(document_id).set(data)
 
-
+# Define a function to add an instance to Firestore
+def add_to_firestore(instance, collection_name):
+    data = instance.to_dict()
+    # Determine the appropriate collection based on the instance type
+    if isinstance(instance, User):
+        collection = db.collection(f"{collection_name}_users")
+    elif isinstance(instance, Bike):
+        collection = db.collection(f"{collection_name}_bikes")
+    elif isinstance(instance, Gps):
+        collection = db.collection(f"{collection_name}_gps")
+    # Add the data to the collection
+    document_id = f"{collection_name}_{instance.get_id()}"  # You can implement a method like get_id in your classes
+    collection.document(document_id).set(data)
 
 # Ejemplo de cómo crear y agregar instancias de clases a Firestore
-new_user = User(user_id=2, username="Usuario prueba 2", matricula="12345", rfid_card_id="RFID123")
-add_to_firestore(new_user, "my_collection", f"user_{new_user.user_id}")
+new_user = User(user_id=2, username="Usuario prueba 3", matricula="12345", rfid_card_id="RFID123")
+add_to_firestore(new_user, "my_collection")
 
 new_bike = Bike(bike_id=2, is_available=True, gps_id=1)
-add_to_firestore(new_bike, "my_collection", f"bike_{new_bike.bike_id}")
+add_to_firestore(new_bike, "my_collection")
 
 new_gps = Gps(gps_id=2, status=True)
-add_to_firestore(new_gps, "my_collection", f"gps_{new_gps.gps_id}")
-
+add_to_firestore(new_gps, "my_collection")
 
 """ 
 new_access_log = AccessLog(
