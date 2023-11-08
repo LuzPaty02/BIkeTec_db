@@ -8,7 +8,7 @@ from clases.gps import Gps
 #from database_connection_files.clases.accessLogs import AccessLog
 
 # Inicializa Firebase con tu archivo de configuración
-cred = credentials.Certificate(r"D:\uni - 3\IoT\BIkeTec_db\biketec-d84db-firebase-adminsdk-ys1mt-5772406772.json")
+cred = credentials.Certificate(r" ")
 #ruta/a/tu/archivo-de-configuracion.json
 firebase_admin.initialize_app(cred)
 
