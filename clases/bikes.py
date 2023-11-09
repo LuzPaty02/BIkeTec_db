@@ -1,12 +1,12 @@
 class Bike:
     current_bike_id = 0
-
-    def __init__(self, is_available, gps_id):
-        # Initialize the bike ID with the current ID and increment the counter
-        self._bike_id = Bike.current_bike_id
-        Bike.current_bike_id += 1
-
-        # Set the bike's availability and GPS ID
+    bike_id = 0
+    def __init__(self, bike_id, is_available, gps_id):
+        if bike_id is None:
+            self._bike_id = Bike.current_bike_id
+            Bike.current_bike_id += 1
+        else:
+            self._bike_id = bike_id
         self._is_available = is_available
         self._gps_id = gps_id
 

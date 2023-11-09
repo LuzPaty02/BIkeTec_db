@@ -1,13 +1,12 @@
 class User:
-    # Class-wide variable to track the next available user ID
     current_id = 1
-
-    def __init__(self, username, matricula, rfid_card_id):
-        # Initialize the user ID with the current ID and increment the counter
-        self._user_id = User.current_id
-        User.current_id += 1
-
-        # Set the user's attributes
+    user_id = 0
+    def __init__(self, username, matricula, rfid_card_id, user_id):
+        if user_id is None:
+            self._user_id = User.current_id
+            User.current_id += 1
+        else:
+            self._user_id = user_id
         self._username = username
         self._matricula = matricula
         self._rfid_card_id = rfid_card_id
@@ -25,9 +24,6 @@ class User:
     # Static method to retrieve the last added user ID
     @staticmethod
     def get_last_added_user_id():
-        # Implement logic to retrieve the last added user ID from the database
-        # This could involve querying the users collection for the maximum user ID
-        # or using a dedicated counter document
         last_user_id = None  # Replace with actual retrieval logic
         return last_user_id
 

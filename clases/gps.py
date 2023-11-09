@@ -1,12 +1,12 @@
 class Gps:
     current_gps_id = 0
-
-    def __init__(self, status):
-        # Initialize the GPS ID with the current ID and increment the counter
-        self._gps_id = Gps.current_gps_id
-        Gps.current_gps_id += 1
-
-        # Set the GPS's status
+    gps_id = 0
+    def __init__(self, gps_id,status):
+        if gps_id is None:
+            self._gps_id = Gps.current_gps_id
+            Gps.current_gps_id += 1
+        else:   
+            self._gps_id = gps_id
         self._status = status
 
     # Getter for gps_id
