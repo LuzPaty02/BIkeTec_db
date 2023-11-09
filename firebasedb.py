@@ -43,7 +43,7 @@ def add_data_with_loop():
     starting_user_id = last_user_id + 1 if last_user_id else 1
     for i in range(starting_user_id, starting_user_id + 3):
         # Create new instances of User, Bike, and Gps
-        new_user = User(user_id=i, username=f"Usuario prueba {i} jiji", matricula="12345", rfid_card_id=f"RFID{i - 1}")
+        new_user = User(user_id=i, username=f"Usuario prueba {i} xd", matricula="12345", rfid_card_id=f"RFID{i - 1}")
         new_bike = Bike(bike_id=i, is_available=True, gps_id=i - 1)
         new_gps = Gps(gps_id=i, status=True)
 
