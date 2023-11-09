@@ -18,8 +18,8 @@ int minimo = 900;
 #define WIFI_SSID "S23"
 #define WIFI_PASSWORD "Keea3715"
 #define API_KEY "AIzaSyCBM842ZTZp15sMTeEz0AzKCAY4Nzegkqc"
-#define DATABASE_URL "https://biketec-d84db-default-rtdb.firebaseio.com/"
-#define USER_EMAIL "A01637277@tec.mx"
+#define DATABASE_URL ""
+#define USER_EMAIL ""
 #define USER_PASSWORD "123456"
 
 FirebaseData fbdo;
